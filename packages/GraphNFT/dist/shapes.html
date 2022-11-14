@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>Example shapes</title>
+        <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+        <script type="importmap">
+        {
+            "imports": {
+            "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.143.0/three.module.js"
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <script type="module">
+            import * as THREE from 'three';
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+            const renderer = new THREE.WebGLRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
+
+            const size = 2;
+            var shapes = [
+                new THREE.BoxGeometry(size, size, size),
+                new THREE.ConeGeometry(size, size * 2, 6, 2),
+                new THREE.CapsuleGeometry(size, size, 1, 5),
+                new THREE.CylinderGeometry(size, size, size * 2, 8, 1),
+                new THREE.DodecahedronGeometry(size, 0),
+                new THREE.IcosahedronGeometry(size, 0),
+                new THREE.OctahedronGeometry(size, 0),
+                new THREE.TetrahedronGeometry(size, 1),
+                new THREE.SphereGeometry(size, 8, 4),
+                new THREE.TorusGeometry(size, size / 3, 7, 7),
+                new THREE.TorusKnotGeometry(size / 2, size / 2, 16, 4, 17, 8),
+                new THREE.TorusKnotGeometry(size / 2, size / 2, 8, 4, 7, 5),
+                new THREE.TorusKnotGeometry(size / 2, size / 2, 10, 4, 1, 5),
+                new THREE.TorusKnotGeometry(size / 2, size / 2, 16, 4, 3, 2)
+            ]
+
+            // const material = new THREE.MeshLambertMaterial({
+            //         wireframe: true
+            //     })
+            const material = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true });
+            var i = 0;
+            var objects = []
+            shapes.forEach(shape => {
+                const object = new THREE.Mesh(shape, material);
+                const x = 10 * (i % 5);
+                const y = 10 * parseInt(i/5);
+                console.log(i, x, y)
+                object.position.x = x;
+                object.position.y = y;
+                scene.add(object);
+                objects.push(object)
+                i += 1;
+            })
+            
+            // const geometry = new THREE.BoxGeometry(1, 1, 1);
+            // const cube = new THREE.Mesh(geometry, material);
+            // scene.add(cube);
+
+            camera.position.x = 20;
+            camera.position.y = 10;
+            camera.position.z = 30;
+            var axis = new THREE.Vector3(0.5, 0.0, 0.0);
+            var rad = 0;
+            var radIncrement = 0.0001;
+            function animate() {
+                requestAnimationFrame(animate);
+                objects.forEach(object => {
+                    object.rotation.y += 0.5 * Math.PI / 180;
+                })
+                renderer.render(scene, camera);
+            }
+            animate();
+        </script>
+    </body>
+</html>

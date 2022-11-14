@@ -1,0 +1,17 @@
+{
+    "description": "An example NFT json file for the Diamond DAO Graph NFT project.",
+    "tokenID": 0,
+    "name": "An example Graph NFT",
+    "image": "ipfs://QmZB3YJmrd1SfoiQ2khoRxVKN9GLPC9hzZt4TLW9s9YPNS",
+    "animation_url": "ipfs://QmfBr8jJywMS4vajRe7mM645SZcjAZUUNyf1QL427AdvFP?jsonURL=https://raw.githubusercontent.com/d3/d3-plugins/master/graph/data/miserables.json&seed=0xF0552F71fDdd72ae6d0F59EfE3fCcFFc39aF21FF&glitch=true",
+    "attributes": [
+        {
+            "trait_type": "Glitch",
+            "value": "Glitching"
+        },
+        {
+            "trait_type": "Animation",
+            "value": "Not Animated"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Cyber3DGraphViz-NFT",
+  "version": "1.0.0",
+  "description": "A GraphViz generator to be embeded as an NFT",
+  "main": "index.js",
+  "repository": "git@github.com:Xqua/Cyber3DGraphViz-NFT.git",
+  "author": "Leo Blondel <xqua@free.fr>",
+  "license": "MIT"
+}

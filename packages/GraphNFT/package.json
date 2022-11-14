@@ -1,0 +1,29 @@
+{
+  "name": "DiamondDAOGraphNFT",
+  "version": "1.0.0",
+  "description": "A graph NFT generator built for ChainVerse and DiamondDAO",
+  "private": true,
+  "author": "Xqua In The Moon",
+  "license": "MIT",
+  "dependencies": {
+    "3d-force-graph": "^1.70.13",
+    "colormap": "^2.3.2",
+    "lodash": "^4.17.21",
+    "ngraph.generators": "^20.1.0",
+    "serve": "^14.0.1",
+    "surge": "^0.23.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^4.10.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "serve": "webpack serve",
+    "watch": "webpack --watch",
+    "start": "webpack --watch & webpack serve",
+    "surge": "surge dist/",
+    "ipfs": "ipfs add -r ./dist"
+  }
+}
